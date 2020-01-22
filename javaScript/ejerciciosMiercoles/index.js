@@ -94,10 +94,10 @@ let videogame = game(p1, p2)
 
 //EXERCISE-06
 
-const sustantivos = sustantive(["Spider", "Laser", "Microbe", "Spectre", "Scan", "Badger", "Lighting", "Thunder", "Eagle", "Hurricane", "Storm", "Typhoon", "Fire", "Flame", "Flash", "Night", "Whirlwind", "Wind", "Dawn", "Light", "Dragon", "Wolf", "Vemon", "Cobra", "Viper", "Condor", "Stalker", "Panther", "Puma", "Shadow", "Freeze", "Night", "Hammer", "Mist", "Tulip", "Octopus", "Inferno", "Magma", "Patriot", "Stag", "Rhino", "Mole", "Sloth"])
-const titulos_masculino = nameMasculino(["Boy", "Man", "Man", "Man", "Man", "Guy", "Mr.", "Doctor", "El", "Professor", "Captain", "Agent", "The", "The", "The", "The", "Lord", "Sgt.", "General"])
-const titulos_femenino = nameFemenino(["Girl", "Woman", "Woman", "Woman", "Woman", "Gal", "Miss", "Doctor", "Professor", "Captain", "Agent", "The", "The", "The", "Sgt.", "General"])
-const adjetivos = adjective(["Imperial", "Amazing", "Spectular", "Dino", "Massive", "Fantastic", "Wonder", "Techno", "Electro", "Hydro", "Giant", "Super", "Incredi", "Daring", "Mega", "Tiny", "Red", "Dark", "Orange", "Screaming", "Green", "Teal", "Blue", "Golden", "Fearless", "Great", "Ameri", "Pyro", "Robo", "American", "Cyber", "Frozen"])
+const sustantivos = ["Spider", "Laser", "Microbe", "Spectre", "Scan", "Badger", "Lighting", "Thunder", "Eagle", "Hurricane", "Storm", "Typhoon", "Fire", "Flame", "Flash", "Night", "Whirlwind", "Wind", "Dawn", "Light", "Dragon", "Wolf", "Vemon", "Cobra", "Viper", "Condor", "Stalker", "Panther", "Puma", "Shadow", "Freeze", "Night", "Hammer", "Mist", "Tulip", "Octopus", "Inferno", "Magma", "Patriot", "Stag", "Rhino", "Mole", "Sloth"]
+const titulos_masculino = ["Boy", "Man", "Man", "Man", "Man", "Guy", "Mr.", "Doctor", "El", "Professor", "Captain", "Agent", "The", "The", "The", "The", "Lord", "Sgt.", "General"]
+const titulos_femenino = ["Girl", "Woman", "Woman", "Woman", "Woman", "Gal", "Miss", "Doctor", "Professor", "Captain", "Agent", "The", "The", "The", "Sgt.", "General"]
+const adjetivos = ["Imperial", "Amazing", "Spectular", "Dino", "Massive", "Fantastic", "Wonder", "Techno", "Electro", "Hydro", "Giant", "Super", "Incredi", "Daring", "Mega", "Tiny", "Red", "Dark", "Orange", "Screaming", "Green", "Teal", "Blue", "Golden", "Fearless", "Great", "Ameri", "Pyro", "Robo", "American", "Cyber", "Frozen"]
 
 function sustantive(greatName) {
 
@@ -106,16 +106,16 @@ function sustantive(greatName) {
     return result;
 }
 
-function nameMasculino(hombre) {
+function nameMasculino(Men) {
 
-    let result = hombre[Math.round(Math.random() * (hombre.length)) - 1];
+    let result = Men[Math.round(Math.random() * (Men.length)) - 1];
 
     return result;
 }
 
-function nameFemenino(mujer) {
+function nameFemenino(Woman) {
 
-    let result = mujer[Math.round(Math.random() * (mujer.length)) - 1];
+    let result = Woman[Math.round(Math.random() * (Woman.length)) - 1];
 
     return result;
 }
@@ -127,21 +127,27 @@ function adjective(adjetivo) {
     return result;
 }
 
+function compositionResult(test) {
+
+    let resultados = []
+    let adjetivo = adjective(adjetivos);
+    let sustantivo = sustantive(sustantivos); 
+    let femenino = nameFemenino(titulos_femenino); 
+    let masculino = nameMasculino(titulos_masculino); 
+
+    if (test === "Mujer") {
+
+        resultados.push(femenino, sustantivo, adjetivo)
+    }
+    if (test === "Hombre") {
+
+        resultados.push(masculino, sustantivo, adjetivo)
+    }
+    return resultados;
+}
 let test = prompt("Idica sexo Mujer o Hombre? : ");
 let Genero = compositionResult(test)
+alert(Genero)
 
-function compositionResult(result) {
 
-    let resultado;
-
-    if (result === "Mujer") {
-        resultado = [nameFemenino(mujer) + sustantive(greatName) + adjective(adjetivo)]
-    }
-    if (result === "Hombre") {
-        resultado = [nameMasculino(hombre) + sustantive(greatName) + adjective(adjetivo)]
-    }
-    return resultado;
-}
-
-let result = compositionResult(result)
-alert(result)
+///FIN!!
