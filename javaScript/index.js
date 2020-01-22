@@ -170,19 +170,19 @@ function game(P1, P2) {
     if (P1 === "papel" && P2 === "piedra") {
         alert("P1 Win")
     }
-    if (P1 === "piedra" && P2 === "papel") {
+    else if (P1 === "piedra" && P2 === "papel") {
         alert("P2 Win")
     }
-    if (P1 === "piedra" && P2 === "tijera") {
+    else if (P1 === "piedra" && P2 === "tijera") {
         alert("P1 Win")
     }
-    if (P1 === "tijera" && P2 === "piedra") {
+    else if (P1 === "tijera" && P2 === "piedra") {
         alert("P2 Win")
     }
-    if (P1 === "tijera" && P2 === "papel") {
+    else if (P1 === "tijera" && P2 === "papel") {
         alert("P1 Win")
     }
-    if (P1 === "papel" && P2 === "tijera") {
+    else if (P1 === "papel" && P2 === "tijera") {
         alert("P2 Win")
     } else {
         alert("Dead Heat")
